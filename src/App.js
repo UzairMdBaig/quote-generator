@@ -23,6 +23,11 @@ const App = () => {
     alert('copied')
   }
 
+  const shareTo = (e)=>{
+    navigator.clipboard.writeText(quote.author + " once said: " + quote.content)
+    alert(`Shared ${e.target.innerHTML.slice(6,)}!!`)
+  }
+
   return (
     <>
       <h1>Quote Generator React App</h1>
@@ -31,11 +36,15 @@ const App = () => {
         <span>{quote.author}</span>
         <div className="btns">
           <button onClick={copy} className="btn">Copy</button>
+          <button onClick={shareTo} className="btn">Share on Whatsapp</button>
+          <button onClick={shareTo} className="btn">Share on facebook</button>
+          <button onClick={shareTo} className="btn">Share on linkedin</button>
           <button onClick={generateQuote}>Generate Another Quote</button>
         </div>
       </div>
     </>
   )
+
 }
 
 
